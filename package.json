@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/*.spec.js --watch"
+    "test": "mocha tests/*.spec.js --watch",
+    "binarySearch": "mocha tests/01-binarySearch.spec.js",
+    "palindromeCheck": "mocha tests/02-palindromeCheck.spec.js"
   },
   "author": "",
   "license": "ISC",
