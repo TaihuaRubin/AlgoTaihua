@@ -43,3 +43,10 @@ npm test
 ```bash
  npm run stringSearch
 ```
+
+-
+04-pairSum.js
+
+```bash
+npm run pairSum
+```
