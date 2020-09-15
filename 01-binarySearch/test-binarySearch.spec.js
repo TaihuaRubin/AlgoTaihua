@@ -5,7 +5,7 @@ const sinon = require("sinon");
 /***************************
  *  import functions here
  ***************************/
-const binarySearch = require("../scripts/01-binarySearch.js");
+const binarySearch = require("../01-binarySearch/solution-binarySearch");
 
 /***************************
  *  Test Starts Here!

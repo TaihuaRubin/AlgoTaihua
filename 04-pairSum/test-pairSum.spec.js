@@ -5,7 +5,7 @@ const sinon = require("sinon");
 /***************************
  *  import functions here
  ***************************/
-const pairSum = require("../scripts/04-pairSum.js");
+const pairSum = require("../04-pairSum/solution-pairSum.js");
 
 /***************************
  *  Test Starts Here!

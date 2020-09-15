@@ -5,7 +5,7 @@ const sinon = require("sinon");
 /***************************
  *  import functions here
  ***************************/
-const palindromeCheck = require("../scripts/02-palindromeCheck.js");
+const palindromeCheck = require("../02-palindromeCheck/solution-palindromeCheck.js");
 
 /***************************
  *  Test Starts Here!

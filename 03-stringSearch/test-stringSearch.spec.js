@@ -5,7 +5,7 @@ const sinon = require("sinon");
 /***************************
  *  import functions here
  ***************************/
-const stringSearch = require("../scripts/03-stringSearch.js");
+const stringSearch = require("../03-stringSearch/solution-stringSearch.js");
 
 /***************************
  *  Test Starts Here!
