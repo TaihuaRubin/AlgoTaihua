@@ -8,7 +8,8 @@
     "binarySearch": "mocha 01-binarySearch/test-binarySearch.spec.js --watch",
     "palindromeCheck": "mocha 02-palindromeCheck/test-palindromeCheck.spec.js --watch",
     "stringSearch": "mocha 03-stringSearch/test-stringSearch.spec.js --watch",
-    "pairSum": "mocha 04-pairSum/test-pairSum.spec.js --watch"
+    "pairSum": "mocha 04-pairSum/test-pairSum.spec.js --watch",
+    "threeSum": "mocha 05-threeSum/test-threeSum.spec.js --watch"
   },
   "author": "",
   "license": "ISC",
