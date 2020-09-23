@@ -48,3 +48,4 @@ npm run <title>
 - 02 - Palindrome Check
 - 03 - String Search
 - 04 - Pair Sum
+- 05 - Three Sum
