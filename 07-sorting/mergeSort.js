@@ -29,31 +29,29 @@
  */
 
 function merge(arr1, arr2) {
-  let results = []
+  let results = [];
   let i = 0;
   let j = 0;
   while (i < array1.length && j < array2.length) {
     if (array2[j] > array1[i]) {
       results.push(array1[i]);
       i++;
-    }else{
+    } else {
       // this would also cover the case when j and i are the equal
       results.push(array2[j]);
-      j++
+      j++;
     }
   }
 
-  while(i<array1.length){
+  while (i < array1.length) {
     results.push(array1[i]);
-    i++
+    i++;
   }
 
-  while(j<array2.length){
+  while (j < array2.length) {
     results.push(array2[j]);
-    j++
+    j++;
   }
 
-
-  return results
+  return results;
 }
-
