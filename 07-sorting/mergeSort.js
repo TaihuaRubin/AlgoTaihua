@@ -83,4 +83,12 @@ console.log(mergeSort([1, 10, 50, 2, 14, 99, 100]));
  * Average -> O(n log n)
  * worst -> O(n log n)
  * Space -> O(n)
+ *
+ * Why?
+ * split!! 32 -> 16, 16 -> 8, 8, 8 , 8 -> 4s -> 2s -> 1s
+ * 2 to the power of 5 (log n)
+ *
+ * n Log n?! when we sort, we compare O(n) time
+ *
+ * so split/merge + sort is O(n log n)
  */
