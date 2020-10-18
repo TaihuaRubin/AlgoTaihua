@@ -28,7 +28,7 @@
  * merge([1,10,50], [2, 14, 99, 100])
  */
 
-function merge(arr1, arr2) {
+function merge(array1, array2) {
   let results = [];
   let i = 0;
   let j = 0;
@@ -55,3 +55,24 @@ function merge(arr1, arr2) {
 
   return results;
 }
+
+/** MergeSort
+ *
+ * 1. breaking up the array into halves until you have arrays that are empty or have one element
+ * 2. Once you have smaller sorted arrays, merge those arrays with other sorted arrays until youre back at the full length of the array.
+ * 3. Once the array has been merged back together, return the merged (and sorted!) array.
+ */
+
+function mergeSort(arr) {
+  // base case
+  if (arr.length <= 1) return arr;
+
+  // split to halves recursively
+  // if the length isnt 1 or 0
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+
+console.log(mergeSort([1, 10, 50, 2, 14, 99, 100]));
