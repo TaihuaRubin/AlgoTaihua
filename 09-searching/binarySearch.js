@@ -17,3 +17,8 @@ const binarySearch = (array, targetValue) => {
 
   return -1;
 };
+
+/**
+ * worst time ->  O(log n)
+ * best -> O(1)
+ */
