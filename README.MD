@@ -49,3 +49,6 @@ npm run <title>
 - 03 - String Search
 - 04 - Pair Sum
 - 05 - Three Sum
+- 06 - Tree Traversals
+- 07 - Sorting
+- 08 - Recursion
