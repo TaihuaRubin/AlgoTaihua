@@ -16,6 +16,8 @@ npm install
 
 ### 🎮 Run All Tests
 
+#### 📝 Not all topics have completed tests written yet...
+
 ```bash
 npm test
 ```
@@ -42,7 +44,7 @@ npm run <title>
 
 ---
 
-## 🗃 Current Problems:
+## 🗃 Current Topics:
 
 - 01 - Binary Search
 - 02 - Palindrome Check
@@ -52,3 +54,6 @@ npm run <title>
 - 06 - Tree Traversals
 - 07 - Sorting
 - 08 - Recursion
+- 09 - Searching
+- 10 - Linked Lists
+- 11 - Stacks & Queues
