@@ -1,5 +1,13 @@
 # Binary Search Tree
 
+![bst](binarySearchTree.png)
+
+## when deleting Node:
+
+    we have to go to the right node, and then go to the left most child-node of that right node, to make that the new node
+
+![deleteNode](deleteNode.png)
+
 ```javascript
 /* Binary Search Tree */
 
@@ -18,15 +26,21 @@ class BST {
       initData.forEach(this.add.bind(this));
     }
   }
+
+  // recursive function to search where to add new node
   searchTree(node, data) {
+    // if data is less than out current node's data => go check left side
     if (data < node.data) {
       if (node.left === null) {
+        // if there's nothing we can place
         node.left = new Node(data);
         return;
       } else if (node.left !== null) {
+        // else make the root node.left and recurse
         return this.searchTree(node.left, data);
       }
     } else if (data > node.data) {
+      // right side
       if (node.right === null) {
         node.right = new Node(data);
         return;
@@ -37,30 +51,38 @@ class BST {
       return null;
     }
   }
+
   add(data) {
     const node = this.root;
     if (node === null) {
+      // if no root node
       this.root = new Node(data);
       return;
     } else {
       return this.searchTree(node, data);
     }
   }
+
   findMin() {
+    // if we look at the binary search tree, the min is always on the most bottom left, so we just keey traversing down left side
     let current = this.root;
     while (current.left !== null) {
       current = current.left;
     }
     return current.data;
   }
+
   findMax() {
+    // Max is always on the most bottom right
     let current = this.root;
     while (current.right !== null) {
       current = current.right;
     }
     return current.data;
   }
+
   find(data) {
+    // similar to is present
     let current = this.root;
     while (current.data !== data) {
       if (data < current.data) {
@@ -72,35 +94,42 @@ class BST {
         return null;
       }
     }
-    return current;
+    return current; // returns the node where the data is
   }
+
   isPresent(data) {
+    // this function is similar to find, but it returns true/false instead
     let current = this.root;
     while (current) {
       if (data === current.data) {
+        // if our current equals to what we're looking for
         return true;
       }
       if (data < current.data) {
+        // else compare their data val
         current = current.left;
       } else {
         current = current.right;
       }
     }
-    return false;
+    return false; // return false at the end
   }
+
   remove(data) {
     const removeNode = function (node, data) {
+      // here we define a function to remove node
       if (node == null) {
+        // if we have an empty tree
         return null;
       }
       if (data == node.data) {
         // node has no children
         if (node.left == null && node.right == null) {
-          return null;
+          return null; // returns nothing is the node has no children at all
         }
         // node has no left child
         if (node.left == null) {
-          return node.right;
+          return node.right; // if we have no left child, replace it with our right child
         }
         // node has no right child
         if (node.right == null) {
@@ -109,24 +138,27 @@ class BST {
         // node has two children
         var tempNode = node.right;
         while (tempNode.left !== null) {
-          tempNode = tempNode.left;
+          tempNode = tempNode.left; // find the most left child of the right tree
         }
-        node.data = tempNode.data;
-        node.right = removeNode(node.right, tempNode.data);
+        node.data = tempNode.data; // re-assign current node's data
+        node.right = removeNode(node.right, tempNode.data); // call our function again to delete this node from the subtree
         return node;
       } else if (data < node.data) {
-        node.left = removeNode(node.left, data);
+        // if our current node isnt equal to the data to be removed
+        node.left = removeNode(node.left, data); // go to left / right according to comparison
         return node;
       } else {
         node.right = removeNode(node.right, data);
         return node;
       }
     };
-    this.root = removeNode(this.root, data);
+    this.root = removeNode(this.root, data); // here we involk the function we defined & reassign the node to be deleted to what the function returns
   }
+
   isBalanced() {
     return this.findMinHeight() >= this.findMaxHeight() - 1;
   }
+
   findMinHeight(node = this.root) {
     if (node == null) {
       return -1;
@@ -139,6 +171,7 @@ class BST {
       return right + 1;
     }
   }
+
   findMaxHeight(node = this.root) {
     if (node == null) {
       return -1;
@@ -151,6 +184,7 @@ class BST {
       return right + 1;
     }
   }
+
   inOrder() {
     if (this.root == null) {
       return null;
@@ -165,6 +199,7 @@ class BST {
       return result;
     }
   }
+
   preOrder() {
     if (this.root == null) {
       return null;
@@ -179,6 +214,7 @@ class BST {
       return result;
     }
   }
+
   postOrder() {
     if (this.root == null) {
       return null;
