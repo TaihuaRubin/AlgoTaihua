@@ -8,6 +8,10 @@
 
 ![deleteNode](deleteNode.png)
 
+## Traversing in the tree
+
+![traversal](Tree-Traversals.png)
+
 ```javascript
 /* Binary Search Tree */
 
@@ -155,11 +159,16 @@ class BST {
     this.root = removeNode(this.root, data); // here we involk the function we defined & reassign the node to be deleted to what the function returns
   }
 
+  // Finding the tree height & tree traversal
+
   isBalanced() {
+    //A node in a tree is height-balanced if the heights of its subtrees differ by no more than 1. (That is, if the subtrees have heights h1 and h2, then |h1 − h2| ≤ 1.) A tree is height-balanced if all of its nodes are height-balanced.
+
     return this.findMinHeight() >= this.findMaxHeight() - 1;
   }
 
   findMinHeight(node = this.root) {
+    // Min height count until the current node has no left || right child
     if (node == null) {
       return -1;
     }
@@ -185,16 +194,21 @@ class BST {
     }
   }
 
+  // depth first search trees
+
   inOrder() {
     if (this.root == null) {
+      // if the tree is empty
       return null;
     } else {
       var result = new Array();
+
       function traverseInOrder(node) {
-        node.left && traverseInOrder(node.left);
-        result.push(node.data);
-        node.right && traverseInOrder(node.right);
+        node.left && traverseInOrder(node.left); // short circuit operation (if node.left is true, run traverseInorder(node.left))
+        result.push(node.data); // push node.data into the result array
+        node.right && traverseInOrder(node.right); // ccheck right side
       }
+
       traverseInOrder(this.root);
       return result;
     }
@@ -205,11 +219,13 @@ class BST {
       return null;
     } else {
       var result = new Array();
+
       function traversePreOrder(node) {
-        result.push(node.data);
+        result.push(node.data); // push first => check left => check right
         node.left && traversePreOrder(node.left);
         node.right && traversePreOrder(node.right);
       }
+
       traversePreOrder(this.root);
       return result;
     }
@@ -220,11 +236,14 @@ class BST {
       return null;
     } else {
       var result = new Array();
+
       function traversePostOrder(node) {
+        // check left & right and then push after
         node.left && traversePostOrder(node.left);
         node.right && traversePostOrder(node.right);
         result.push(node.data);
       }
+
       traversePostOrder(this.root);
       return result;
     }
@@ -236,12 +255,14 @@ class BST {
     if (this.root != null) {
       Q.push(this.root);
       while (Q.length > 0) {
-        let node = Q.shift();
-        result.push(node.data);
+        let node = Q.shift(); // take the first one from the Q
+        result.push(node.data); //push it's value to the result
         if (node.left != null) {
+          // if there is a left node => push into Q
           Q.push(node.left);
         }
         if (node.right != null) {
+          // same for the right side
           Q.push(node.right);
         }
       }
